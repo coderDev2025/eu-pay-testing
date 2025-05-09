@@ -2,7 +2,6 @@ import { getPartnerAccessToken } from './linkcy.service.js';
 
 // ✅ CREATE CONSUMER + SEND OTP
 export async function createConsumer(userData) {
-  try {
     const token = getPartnerAccessToken();
 
     const response = await fetch(`${process.env.LINKCY_BASE_URL}/api/partner/consumers`, {
@@ -26,10 +25,6 @@ export async function createConsumer(userData) {
     
     return data;
 
-  } catch (error) {
-    console.error('❌ Error in createConsumer:', error.message);
-    throw error;
-  }
 }
 
 // ✅ SEND OTP

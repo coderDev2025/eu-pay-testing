@@ -31,6 +31,7 @@ try {
     if (response.status === 200 && data.token) {
         partnerAccessToken = data.token; 
         partnerRefreshToken = data.refreshToken;
+        console.log(partnerAccessToken)
         console.log('Partner login successful!');
       } else {
         console.error('Partner login failed:', data);
@@ -44,6 +45,7 @@ export async function refreshPartnerToken() {
     try {
          
         const response =  await fetch(`${process.env.LINKCY_BASE_URL}/api/partner/refresh`,{
+            method:"POST",
             body:
                 JSON.stringify({
                     refreshToken:partnerRefreshToken

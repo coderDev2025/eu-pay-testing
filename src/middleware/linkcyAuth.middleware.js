@@ -19,7 +19,7 @@ export async function ensureToken(req,res,next) {
             token = getPartnerAccessToken();
           }
           req.partnerAccessToken = token;
-
+          
           next();
 
     } catch (error) {
